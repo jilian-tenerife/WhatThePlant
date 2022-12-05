@@ -16,7 +16,7 @@ class _inbox extends State<Inbox> {
     return Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/wtp_bg.png'), fit: BoxFit.cover)),
+                image: AssetImage('assets/wtp_bg.jpg'), fit: BoxFit.cover)),
         child: Scaffold(
           appBar: _buildAppBar(),
           backgroundColor: Colors.transparent,
