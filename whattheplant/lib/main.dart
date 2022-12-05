@@ -1,9 +1,6 @@
+import 'colors.dart';
+import 'login.dart';
 import 'package:flutter/material.dart';
-import 'package:whattheplant/colors.dart';
-import 'dart:ui';
-
-import 'package:whattheplant/login.dart';
-
 void main() {
   runApp(const MyApp());
 }
