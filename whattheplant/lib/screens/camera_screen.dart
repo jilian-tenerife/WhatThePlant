@@ -1,3 +1,4 @@
+import 'package:whattheplant/widgets/profile_collections_view.dart';
 import 'package:whattheplant/widgets/top_nav.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -42,10 +43,19 @@ class _CameraScreenState extends State<CameraScreen> {
                   scale: 1.5,
                 ),
                 Image.asset('assets/snap.png'),
-                Image.asset(
-                  'assets/collections.png',
-                  scale: 1.3,
-                )
+                GestureDetector(
+                    onTap: (() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return ProfileCollections();
+                        }),
+                      );
+                    }),
+                    child: Image.asset(
+                      'assets/collections.png',
+                      scale: 1.3,
+                    ))
               ],
             ))
       ],
