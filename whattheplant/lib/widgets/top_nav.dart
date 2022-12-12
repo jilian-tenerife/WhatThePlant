@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whattheplant/screens/profile_screen.dart';
+import 'package:whattheplant/screens/achievements_screen.dart';
+import 'package:whattheplant/widgets/profile_collections_view.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class TopBar extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return Profile();
+                    return ProfileCollections();
                   }),
                 );
               }),
@@ -44,9 +45,19 @@ class TopBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               color: Color(0xff127C56).withOpacity(0.5),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Image.asset('assets/badge.png'),
+            child: GestureDetector(
+              onTap: (() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return Achievements();
+                  }),
+                );
+              }),
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Image.asset('assets/badge.png'),
+              ),
             ),
           ),
         ),
