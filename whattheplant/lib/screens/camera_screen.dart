@@ -1,7 +1,8 @@
-import 'package:whattheplant/widgets/profile_collections_view.dart';
 import 'package:whattheplant/widgets/top_nav.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+
+import 'collections_screen.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen(
@@ -48,7 +49,7 @@ class _CameraScreenState extends State<CameraScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) {
-                          return ProfileCollections();
+                          return Collections();
                         }),
                       );
                     }),

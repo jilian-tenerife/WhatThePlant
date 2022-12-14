@@ -10,7 +10,7 @@ class ProfileCollections extends StatefulWidget {
 }
 
 class _ProfileCollectionsState extends State<ProfileCollections> {
-  final _controller = PageController(initialPage: 1);
+  final _controller = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {

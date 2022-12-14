@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whattheplant/screens/collections_screen.dart';
 import 'package:whattheplant/widgets/semi_collection.dart';
 import '../widgets/back_button.dart';
 
