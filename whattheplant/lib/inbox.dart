@@ -106,6 +106,158 @@ class _inbox extends State<Inbox> {
   }
 }
 
+class MessageThread extends StatefulWidget {
+  const MessageThread({Key? key}) : super(key: key);
+
+  @override
+  State<MessageThread> createState() => _messageThread();
+}
+
+class _messageThread extends State<MessageThread> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+      appBar: AppBar(
+        title: const Text("Garfield"),
+        backgroundColor: btngreen,
+      ),
+      body: Container(
+        color: btngreen,
+        child: Column(children: [
+          Expanded(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
+                        child: Container(
+                          width: 300,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.white),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Yo broskie.",
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
+                        child: Container(
+                          width: 300,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: inputgreen),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Did you see my flower?",
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
+                        child: Container(
+                          width: 300,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: inputgreen),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "My flower is a gorgeous gorgeous gumamela. I take care of it everyday.",
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
+                        child: Container(
+                          width: 300,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.white),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Show pics plzs.",
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(6, 6, 6, 6),
+                        child: Container(
+                          width: 300,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            image: Image.asset(
+                            "assets/gumamela.jpeg",
+                            width: 10,
+                            height: 10,
+                          ),
+                              borderRadius: BorderRadius.circular(30),
+                              color: inputgreen),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+          Container(
+            color: Colors.white,
+            child: TextField(
+              decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.all(12), hintText: "Lol"),
+            ),
+          ),
+        ]),
+      ));
+}
+
 class friends extends StatelessWidget {
   final name;
   const friends({
@@ -160,48 +312,54 @@ class message extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: new ClipRect(
-        child: new BackdropFilter(
-          filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-          child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(18),
-                  color: Colors.grey.shade300.withOpacity(0.2)),
-              width: 400,
-              height: 100,
-              child: Row(
-                children: [
-                  SizedBox(width: 20),
-                  CircleAvatar(
-                    radius: 25, // Image radius
-                    backgroundImage: AssetImage('assets/gradpic.jpeg'),
-                  ),
-                  SizedBox(width: 20),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        '$name',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left,
-                      ),
-                      Text(
-                        'New chat! Tap to view',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: 100),
-                  Icon(
-                    Icons.message_rounded,
-                    color: Colors.white,
-                  ),
-                ],
-              )),
+      child: new GestureDetector(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MessageThread()));
+        },
+        child: new ClipRect(
+          child: new BackdropFilter(
+            filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+            child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    color: Colors.grey.shade300.withOpacity(0.2)),
+                width: 400,
+                height: 100,
+                child: Row(
+                  children: [
+                    SizedBox(width: 20),
+                    CircleAvatar(
+                      radius: 25, // Image radius
+                      backgroundImage: AssetImage('assets/gradpic.jpeg'),
+                    ),
+                    SizedBox(width: 20),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          '$name',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          'New chat! Tap to view',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 100),
+                    Icon(
+                      Icons.message_rounded,
+                      color: Colors.white,
+                    ),
+                  ],
+                )),
+          ),
         ),
       ),
     );
