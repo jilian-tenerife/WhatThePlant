@@ -6,6 +6,7 @@ import 'package:whattheplant/inbox.dart';
 import 'package:whattheplant/login.dart';
 import 'package:whattheplant/screens/camera_screen.dart';
 import 'package:whattheplant/screens/settings.dart';
+import 'colors.dart';
 
 late List<CameraDescription> _cameras;
 List<CameraDescription> getCameras() {
