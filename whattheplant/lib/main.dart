@@ -122,9 +122,7 @@ class _MainPageState extends State<MainPage> {
                     showUnselectedLabels: false,
                     currentIndex: _currentScreen,
                     onTap: (int index) {
-                      setState(() {
-                        _pageController.jumpToPage(index);
-                      });
+                      _pageController.jumpToPage(index);
                     },
                     items: const <BottomNavigationBarItem>[
                       BottomNavigationBarItem(

@@ -2,6 +2,8 @@ import 'package:whattheplant/widgets/top_nav.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
+import 'collections_screen.dart';
+
 class CameraScreen extends StatefulWidget {
   const CameraScreen(
       {Key? key, required this.cameraController, required this.initCamera})
@@ -42,10 +44,19 @@ class _CameraScreenState extends State<CameraScreen> {
                   scale: 1.5,
                 ),
                 Image.asset('assets/snap.png'),
-                Image.asset(
-                  'assets/collections.png',
-                  scale: 1.3,
-                )
+                GestureDetector(
+                    onTap: (() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return Collections();
+                        }),
+                      );
+                    }),
+                    child: Image.asset(
+                      'assets/collections.png',
+                      scale: 1.3,
+                    ))
               ],
             ))
       ],
